@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="downloadfun()">Download_resume</button>
+  <button onclick="watch()">watch_resume</button>
+  <script>
+    function watch() {
+      let url=`http://localhost:5050/1.png`;
+      window.location.href=url;
+    }
+    function downloadfun() {
+      let url=`http://localhost:5050/1.png`;
+      let filename=url.split("/").pop();
+      let atag=document.createElement('a');
+      atag.href=url;
+      atag.setAttribute('download',filename);
+      document.body.appendChild(atag);
+      atag.click();
+      atag.remove();
+
+    }
+
+  </script>
+</body>
+</html>
